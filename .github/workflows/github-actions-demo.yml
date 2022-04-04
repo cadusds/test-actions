@@ -27,15 +27,13 @@ jobs:
       - name: Stop containers
         if: always()
         run: docker-compose down
-  Python-Run-Scripts:
-    runs-on: ubuntu-lastest
-    steps:
-      - uses: actions/checkout@v3
+      
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
           python-version: '3.8'
           architeture: 'x64'
+
       - run: python tests/test_factory.py
 
 
