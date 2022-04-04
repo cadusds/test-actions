@@ -15,3 +15,17 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+  Run-Containers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Start containers
+        run: docker-compose up --build -V
+      
+      - run: echo "composer up"
+
+      - name:
+        if: always()
+        run: docker-compose down
