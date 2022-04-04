@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Start containers
-        run: docker-compose up --build -V
+        run: docker-compose up --build -d
       
       - run: echo "composer up"
 
